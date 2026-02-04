@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Bhutanese Color Palette */
+    --saffron: #FF9933;
+    --saffron-light: #FFB366;
+    --saffron-dark: #E67E00;
+    --deep-orange: #FF6B35;
+    --bhutan-yellow: #FFD700;
+    --bhutan-gold: #D4AF37;
+    --maroon: #8B0000;
+    --deep-red: #C41E3A;
+    --white: #FFFFFF;
+    --cream: #FFF8E7;
+    --warm-white: #FFFAF0;
+    
+    /* Dark mode colors */
+    --dark-bg: #1A0F0A;
+    --dark-card: #2D1F16;
+    --dark-accent: #FF8C42;
+    
+    --background: 40 100% 97%;
+    --foreground: 20 60% 10%;
+    --card: 40 80% 98%;
+    --card-foreground: 20 60% 10%;
+    --popover: 40 80% 98%;
+    --popover-foreground: 20 60% 10%;
+    --primary: 30 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 100% 60%;
+    --secondary-foreground: 20 60% 10%;
+    --muted: 40 30% 92%;
+    --muted-foreground: 20 20% 40%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 20 60% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 30% 85%;
+    --input: 30 30% 85%;
+    --ring: 30 100% 50%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 20 40% 8%;
+    --foreground: 40 30% 95%;
+    --card: 20 35% 12%;
+    --card-foreground: 40 30% 95%;
+    --popover: 20 35% 12%;
+    --popover-foreground: 40 30% 95%;
+    --primary: 30 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 100% 45%;
+    --secondary-foreground: 40 30% 95%;
+    --muted: 20 25% 18%;
+    --muted-foreground: 40 20% 60%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 20 60% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 25% 20%;
+    --input: 20 25% 20%;
+    --ring: 30 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Bhutanese Colors */
+  .text-saffron {
+    color: var(--saffron);
+  }
+  
+  .bg-saffron {
+    background-color: var(--saffron);
+  }
+  
+  .text-bhutan-gold {
+    color: var(--bhutan-gold);
+  }
+  
+  .bg-bhutan-gold {
+    background-color: var(--bhutan-gold);
+  }
+  
+  /* Better text visibility */
+  .text-primary-light {
+    color: #1A1A1A;
+  }
+  
+  .dark .text-primary-light {
+    color: #FFFFFF;
+  }
+  
+  .text-secondary-light {
+    color: #4A4A4A;
+  }
+  
+  .dark .text-secondary-light {
+    color: #CCCCCC;
+  }
+  
+  /* Traditional Bhutanese Pattern Background */
+  .bhutan-pattern {
+    background-color: var(--cream);
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(255, 153, 51, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+  }
+  
+  .dark .bhutan-pattern {
+    background-color: var(--dark-bg);
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(255, 153, 51, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.06) 0%, transparent 50%);
+  }
+  
+  /* Cloud pattern */
+  .cloud-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 50 Q30 30 50 30 Q70 30 80 50 Q90 50 90 60 Q90 75 75 75 L25 75 Q10 75 10 60 Q10 50 20 50' fill='none' stroke='%23FF9933' stroke-width='0.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+  }
+  
+  .dark .cloud-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 50 Q30 30 50 30 Q70 30 80 50 Q90 50 90 60 Q90 75 75 75 L25 75 Q10 75 10 60 Q10 50 20 50' fill='none' stroke='%23FF9933' stroke-width='0.5' stroke-opacity='0.12'/%3E%3C/svg%3E");
+  }
+  
+  /* Gradient backgrounds */
+  .gradient-saffron {
+    background: linear-gradient(135deg, var(--saffron) 0%, var(--deep-orange) 100%);
+  }
+  
+  .gradient-gold {
+    background: linear-gradient(135deg, var(--bhutan-gold) 0%, var(--saffron) 100%);
+  }
+  
+  /* Card shadow */
+  .card-shadow-bhutan {
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.12), 0 8px 15px rgba(0, 0, 0, 0.04);
+  }
+  
+  .dark .card-shadow-bhutan {
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.15), 0 8px 15px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Noise overlay */
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  
+  /* Glow effect */
+  .glow-saffron {
+    box-shadow: 0 0 25px rgba(255, 153, 51, 0.35);
+  }
+  
+  /* Floating animation */
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--saffron), var(--deep-orange));
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
