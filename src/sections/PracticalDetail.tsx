@@ -32,73 +32,42 @@ export function PracticalDetail() {
     if (!section || !image || !content || !underline || !bullets || !cta) return;
 
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-          anticipatePin: 1,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
         },
       });
 
-      // Phase 1 (0% - 30%): Entrance (flipped - image from right)
-      scrollTl
-        .fromTo(
-          image,
-          { x: '55vw', opacity: 0, scale: 0.98 },
-          { x: 0, opacity: 1, scale: 1, ease: 'none' },
-          0
-        )
+      tl.fromTo(
+        image,
+        { x: 100, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+      )
         .fromTo(
           content.querySelectorAll('.animate-item'),
-          { x: '-18vw', opacity: 0 },
-          { x: 0, opacity: 1, stagger: 0.02, ease: 'none' },
-          0
+          { x: -50, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out' },
+          '-=0.6'
         )
         .fromTo(
           underline,
           { scaleX: 0 },
-          { scaleX: 1, ease: 'none' },
-          0.1
+          { scaleX: 1, duration: 0.6, ease: 'power2.out' },
+          '-=0.4'
         )
         .fromTo(
           bullets.querySelectorAll('li'),
-          { x: '-10vw', opacity: 0 },
-          { x: 0, opacity: 1, stagger: 0.02, ease: 'none' },
-          0.1
+          { x: -30, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power2.out' },
+          '-=0.4'
         )
         .fromTo(
           cta,
-          { y: '6vh', opacity: 0 },
-          { y: 0, opacity: 1, ease: 'none' },
-          0.15
-        );
-
-      // Phase 2 (30% - 70%): Settle (hold)
-
-      // Phase 3 (70% - 100%): Exit (flipped - image to right)
-      scrollTl
-        .to(
-          image,
-          { x: '18vw', opacity: 0, ease: 'power2.in' },
-          0.7
-        )
-        .to(
-          content,
-          { x: '-18vw', opacity: 0, ease: 'power2.in' },
-          0.7
-        )
-        .to(
-          bullets,
-          { x: '-18vw', opacity: 0, ease: 'power2.in' },
-          0.72
-        )
-        .to(
-          cta,
-          { y: '6vh', opacity: 0, ease: 'power2.in' },
-          0.75
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
+          '-=0.3'
         );
     }, section);
 
@@ -109,7 +78,7 @@ export function PracticalDetail() {
     <section
       ref={sectionRef}
       id="practical-detail"
-      className="relative w-full h-screen bg-off-white dark:bg-near-black overflow-hidden z-40"
+      className="relative w-full py-20 lg:py-32 bg-off-white dark:bg-near-black overflow-hidden z-40"
     >
       {/* Plus pattern background */}
       <div className="absolute inset-0 plus-pattern opacity-50" />
@@ -135,10 +104,9 @@ export function PracticalDetail() {
           />
 
           {/* Description */}
-          <p className="animate-item font-body text-base text-text-secondary dark:text-off-white/70 mb-8 leading-relaxed">
+          <p className="animate-item font-body text-base text-text-secondary dark:text-off-white/90 mb-8 leading-relaxed">
             Build muscle memory and real-road judgment with guided behind-the-wheel
-            sessions. Our experienced instructors ensure you develop safe driving
-            habits that last a lifetime.
+            sessions. Our instructors ensure you develop safe driving habits.
           </p>
 
           {/* Features list */}

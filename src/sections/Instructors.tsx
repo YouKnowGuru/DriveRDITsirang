@@ -45,13 +45,12 @@ export function Instructors() {
         {
           y: 0,
           opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
+          duration: 0.8,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: heading,
-            start: 'top 80%',
-            end: 'top 60%',
-            scrub: true,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
           },
         }
       );
@@ -60,36 +59,33 @@ export function Instructors() {
       const cardElements = cards.querySelectorAll('.instructor-card');
       gsap.fromTo(
         cardElements,
-        { y: '10vh', opacity: 0 },
+        { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.6,
-          stagger: 0.12,
-          ease: 'power2.out',
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: cards,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: true,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
           },
         }
       );
 
-      // Photo zoom settle
-      const photos = cards.querySelectorAll('.instructor-photo');
+      // Photo zoom settle - simplified to a subtle entry scale
       gsap.fromTo(
         photos,
-        { scale: 1.04 },
+        { scale: 1.1 },
         {
           scale: 1,
-          duration: 0.8,
+          duration: 1.2,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: cards,
-            start: 'top 70%',
-            end: 'top 40%',
-            scrub: true,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
           },
         }
       );
@@ -142,7 +138,7 @@ export function Instructors() {
                 <h3 className="font-heading font-semibold text-xl text-near-black dark:text-off-white mb-2">
                   {instructor.name}
                 </h3>
-                <p className="font-body text-sm text-text-secondary dark:text-off-white/70">
+                <p className="font-body text-sm text-text-secondary dark:text-off-white/90">
                   {instructor.description}
                 </p>
               </div>

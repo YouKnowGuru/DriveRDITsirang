@@ -43,40 +43,16 @@ export function Hero() {
           '-=0.3'
         );
 
-      // Scroll exit animation - faster
-      const scrollTl = gsap.timeline({
+      // Simplified exit animation
+      gsap.to([content, image, stats], {
+        opacity: 0,
+        y: -50,
         scrollTrigger: {
           trigger: section,
-          start: 'top top',
-          end: '+=120%',
-          pin: true,
-          scrub: 0.4,
-          anticipatePin: 1,
-          onLeaveBack: () => {
-            gsap.set([image, content, stats], { opacity: 1, x: 0, y: 0 });
-          },
+          start: 'bottom 90%',
+          toggleActions: 'play none none reverse',
         },
       });
-
-      scrollTl
-        .fromTo(
-          content,
-          { x: 0, opacity: 1 },
-          { x: '-15vw', opacity: 0, ease: 'power2.in' },
-          0.65
-        )
-        .fromTo(
-          image,
-          { x: 0, opacity: 1 },
-          { x: '15vw', opacity: 0, ease: 'power2.in' },
-          0.65
-        )
-        .fromTo(
-          stats,
-          { y: 0, opacity: 1 },
-          { y: '8vh', opacity: 0, ease: 'power2.in' },
-          0.7
-        );
     }, section);
 
     return () => ctx.revert();
@@ -122,7 +98,7 @@ export function Hero() {
 
           {/* Subheadline */}
           <p className="animate-item font-body text-sm lg:text-base text-[#4A4A4A] dark:text-[#CCCCCC] max-w-md mb-5 leading-relaxed">
-            Join Bhutan's most trusted driving academy in Tsirang and Gelephu. 
+            Join Bhutan's most trusted driving academy in Tsirang and Gelephu.
             Expert instructors, modern vehicles, and a proven track record of success.
           </p>
 
@@ -191,7 +167,7 @@ export function Hero() {
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </div>
-            
+
             {/* Floating badge */}
             <div className="absolute -bottom-3 -left-3 lg:bottom-6 lg:-left-6 bg-white dark:bg-dark-card rounded-2xl p-3 shadow-lg animate-float">
               <div className="flex items-center gap-2.5">

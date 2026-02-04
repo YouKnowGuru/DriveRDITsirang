@@ -38,17 +38,16 @@ export function Testimonials() {
       // Heading animation
       gsap.fromTo(
         heading,
-        { x: '-8vw', opacity: 0 },
+        { x: -40, opacity: 0 },
         {
           x: 0,
           opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
+          duration: 0.8,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: heading,
-            start: 'top 80%',
-            end: 'top 60%',
-            scrub: true,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
           },
         }
       );
@@ -57,18 +56,17 @@ export function Testimonials() {
       const cardElements = cards.querySelectorAll('.testimonial-card');
       gsap.fromTo(
         cardElements,
-        { y: '8vh', opacity: 0 },
+        { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power2.out',
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: cards,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: true,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
           },
         }
       );
@@ -82,14 +80,13 @@ export function Testimonials() {
           scale: 1,
           rotate: 0,
           opacity: 1,
-          duration: 0.5,
-          stagger: 0.1,
+          duration: 0.6,
+          stagger: 0.15,
           ease: 'back.out(1.7)',
           scrollTrigger: {
             trigger: cards,
-            start: 'top 75%',
-            end: 'top 55%',
-            scrub: true,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
           },
         }
       );
@@ -141,14 +138,14 @@ export function Testimonials() {
 
                 {/* Text */}
                 <div className="flex-1">
-                  <p className="font-body text-base lg:text-lg text-near-black dark:text-off-white leading-relaxed mb-4">
+                  <p className="font-body text-base lg:text-lg text-near-black dark:text-off-white/90 leading-relaxed mb-4">
                     "{testimonial.quote}"
                   </p>
                   <div>
                     <h4 className="font-heading font-semibold text-sm text-near-black dark:text-off-white">
                       {testimonial.name}
                     </h4>
-                    <p className="font-body text-xs text-text-secondary dark:text-off-white/60">
+                    <p className="font-body text-xs text-text-secondary dark:text-off-white/80">
                       {testimonial.role}
                     </p>
                   </div>
