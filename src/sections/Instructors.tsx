@@ -75,6 +75,7 @@ export function Instructors() {
       );
 
       // Photo zoom settle - simplified to a subtle entry scale
+      const photos = cards.querySelectorAll('.instructor-photo');
       gsap.fromTo(
         photos,
         { scale: 1.1 },
