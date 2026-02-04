@@ -99,13 +99,13 @@ export function Testimonials() {
     <section
       ref={sectionRef}
       id="testimonials"
-      className="relative w-full py-20 lg:py-28 bg-off-white dark:bg-near-black z-50"
+      className="relative w-full py-20 lg:py-28 bg-background dark:bg-background z-50"
     >
       <div className="px-6 lg:px-[9vw]">
         {/* Heading */}
         <h2
           ref={headingRef}
-          className="font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-near-black dark:text-off-white mb-12 lg:mb-16"
+          className="font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-foreground dark:text-foreground mb-12 lg:mb-16"
         >
           What our <span className="text-lime">students</span> say
         </h2>
@@ -118,7 +118,7 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="testimonial-card relative bg-white dark:bg-near-black/50 rounded-2xl lg:rounded-[28px] p-6 lg:p-8 shadow-card dark:shadow-card-dark"
+              className="testimonial-card relative bg-card dark:bg-card/50 rounded-2xl lg:rounded-[28px] p-6 lg:p-8 shadow-card dark:shadow-card-dark"
             >
               {/* Quote Icon */}
               <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-lime/10 dark:bg-lime/20 flex items-center justify-center">
@@ -138,14 +138,14 @@ export function Testimonials() {
 
                 {/* Text */}
                 <div className="flex-1">
-                  <p className="font-body text-base lg:text-lg text-near-black dark:text-off-white/90 leading-relaxed mb-4">
+                  <p className="font-body text-base lg:text-lg text-foreground dark:text-foreground/90 leading-relaxed mb-4">
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <h4 className="font-heading font-semibold text-sm text-near-black dark:text-off-white">
+                    <h4 className="font-heading font-semibold text-sm text-foreground dark:text-foreground">
                       {testimonial.name}
                     </h4>
-                    <p className="font-body text-xs text-text-secondary dark:text-off-white/80">
+                    <p className="font-body text-xs text-foreground/70 dark:text-foreground/80">
                       {testimonial.role}
                     </p>
                   </div>

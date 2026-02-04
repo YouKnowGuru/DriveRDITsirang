@@ -78,7 +78,7 @@ export function PracticalDetail() {
     <section
       ref={sectionRef}
       id="practical-detail"
-      className="relative w-full py-20 lg:py-32 bg-off-white dark:bg-near-black overflow-hidden z-40"
+      className="relative w-full py-20 lg:py-32 bg-background dark:bg-background overflow-hidden z-40"
     >
       {/* Plus pattern background */}
       <div className="absolute inset-0 plus-pattern opacity-50" />
@@ -93,7 +93,7 @@ export function PracticalDetail() {
           </span>
 
           {/* Heading */}
-          <h2 className="animate-item font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-near-black dark:text-off-white mb-4">
+          <h2 className="animate-item font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-foreground dark:text-foreground mb-4">
             Practical <span className="text-lime">Driving</span>
           </h2>
 
@@ -104,7 +104,7 @@ export function PracticalDetail() {
           />
 
           {/* Description */}
-          <p className="animate-item font-body text-base text-text-secondary dark:text-off-white/90 mb-8 leading-relaxed">
+          <p className="animate-item font-body text-base text-foreground/70 dark:text-foreground/90 mb-8 leading-relaxed">
             Build muscle memory and real-road judgment with guided behind-the-wheel
             sessions. Our instructors ensure you develop safe driving habits.
           </p>
@@ -119,7 +119,7 @@ export function PracticalDetail() {
                 <div className="w-5 h-5 rounded-full bg-lime/20 flex items-center justify-center flex-shrink-0">
                   <Check className="w-3 h-3 text-lime" />
                 </div>
-                <span className="font-body text-sm text-near-black dark:text-off-white">
+                <span className="font-body text-sm text-foreground dark:text-foreground">
                   {feature}
                 </span>
               </li>
@@ -143,7 +143,7 @@ export function PracticalDetail() {
                 const element = document.querySelector('#instructors');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="font-heading font-medium text-sm text-near-black dark:text-off-white hover:text-lime dark:hover:text-lime transition-colors flex items-center gap-2"
+              className="font-heading font-medium text-sm text-foreground dark:text-foreground hover:text-lime dark:hover:text-lime transition-colors flex items-center gap-2"
             >
               <Users className="w-4 h-4" />
               Meet our instructors

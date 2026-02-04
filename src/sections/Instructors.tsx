@@ -99,13 +99,13 @@ export function Instructors() {
     <section
       ref={sectionRef}
       id="instructors"
-      className="relative w-full py-20 lg:py-28 bg-off-white dark:bg-near-black z-50"
+      className="relative w-full py-20 lg:py-28 bg-background dark:bg-background z-50"
     >
       <div className="px-6 lg:px-[9vw]">
         {/* Heading */}
         <h2
           ref={headingRef}
-          className="font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-near-black dark:text-off-white mb-12 lg:mb-16"
+          className="font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-foreground dark:text-foreground mb-12 lg:mb-16"
         >
           Learn from <span className="text-lime">experienced</span> instructors
         </h2>
@@ -118,7 +118,7 @@ export function Instructors() {
           {instructors.map((instructor, index) => (
             <div
               key={index}
-              className="instructor-card group bg-white dark:bg-near-black/50 rounded-2xl lg:rounded-[28px] overflow-hidden shadow-card dark:shadow-card-dark hover:shadow-card-hover transition-shadow duration-300"
+              className="instructor-card group bg-card dark:bg-card/50 rounded-2xl lg:rounded-[28px] overflow-hidden shadow-card dark:shadow-card-dark hover:shadow-card-hover transition-shadow duration-300"
             >
               {/* Photo */}
               <div className="relative aspect-[3/4] overflow-hidden">
@@ -136,10 +136,10 @@ export function Instructors() {
                 <span className="inline-block px-3 py-1 bg-lime/10 dark:bg-lime/20 rounded-full font-heading font-medium text-xs uppercase tracking-[0.08em] text-lime mb-3">
                   {instructor.role}
                 </span>
-                <h3 className="font-heading font-semibold text-xl text-near-black dark:text-off-white mb-2">
+                <h3 className="font-heading font-semibold text-xl text-foreground dark:text-foreground mb-2">
                   {instructor.name}
                 </h3>
-                <p className="font-body text-sm text-text-secondary dark:text-off-white/90">
+                <p className="font-body text-sm text-foreground/70 dark:text-foreground/90">
                   {instructor.description}
                 </p>
               </div>

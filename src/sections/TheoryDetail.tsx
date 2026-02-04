@@ -78,7 +78,7 @@ export function TheoryDetail() {
     <section
       ref={sectionRef}
       id="theory-detail"
-      className="relative w-full py-20 lg:py-32 bg-off-white dark:bg-near-black overflow-hidden z-30"
+      className="relative w-full py-20 lg:py-32 bg-background dark:bg-background overflow-hidden z-30"
     >
       {/* Plus pattern background */}
       <div className="absolute inset-0 plus-pattern opacity-50" />
@@ -105,7 +105,7 @@ export function TheoryDetail() {
           </span>
 
           {/* Heading */}
-          <h2 className="animate-item font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-near-black dark:text-off-white mb-4">
+          <h2 className="animate-item font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-foreground dark:text-foreground mb-4">
             Theory <span className="text-lime">&</span> Road Rules
           </h2>
 
@@ -116,7 +116,7 @@ export function TheoryDetail() {
           />
 
           {/* Description */}
-          <p className="animate-item font-body text-base text-text-secondary dark:text-off-white/90 mb-8 leading-relaxed">
+          <p className="animate-item font-body text-base text-foreground/70 dark:text-foreground/90 mb-8 leading-relaxed">
             Our comprehensive theory course prepares you for both the written exam
             and real-world scenarios. We cover road signs, right-of-way, and
             defensive driving.
@@ -132,7 +132,7 @@ export function TheoryDetail() {
                 <div className="w-5 h-5 rounded-full bg-lime/20 flex items-center justify-center flex-shrink-0">
                   <Check className="w-3 h-3 text-lime" />
                 </div>
-                <span className="font-body text-sm text-near-black dark:text-off-white">
+                <span className="font-body text-sm text-foreground dark:text-foreground">
                   {feature}
                 </span>
               </li>
@@ -151,7 +151,7 @@ export function TheoryDetail() {
               Enroll in theory
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-            <button className="font-heading font-medium text-sm text-near-black dark:text-off-white hover:text-lime dark:hover:text-lime transition-colors flex items-center gap-2">
+            <button className="font-heading font-medium text-sm text-foreground dark:text-foreground hover:text-lime dark:hover:text-lime transition-colors flex items-center gap-2">
               <Download className="w-4 h-4" />
               Download syllabus
             </button>

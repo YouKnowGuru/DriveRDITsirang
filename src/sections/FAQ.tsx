@@ -53,61 +53,31 @@ export function FAQ() {
     if (!section || !heading || !accordion || !illustration) return;
 
     const ctx = gsap.context(() => {
-      // Heading animation
-      gsap.fromTo(
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+      });
+
+      tl.fromTo(
         heading,
-        { x: '-6vw', opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: heading,
-            start: 'top 80%',
-            end: 'top 60%',
-            scrub: true,
-          },
-        }
-      );
-
-      // FAQ items animation
-      const faqItems = accordion.querySelectorAll('[data-faq-item]');
-      gsap.fromTo(
-        faqItems,
-        { x: '-8vw', opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.08,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: accordion,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: true,
-          },
-        }
-      );
-
-      // Illustration animation
-      gsap.fromTo(
-        illustration,
-        { x: '10vw', opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: illustration,
-            start: 'top 80%',
-            end: 'top 60%',
-            scrub: true,
-          },
-        }
-      );
+        { x: -50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
+      )
+        .fromTo(
+          accordion.querySelectorAll('[data-faq-item]'),
+          { x: -40, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' },
+          '-=0.4'
+        )
+        .fromTo(
+          illustration,
+          { scale: 0.9, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.8, ease: 'power2.out' },
+          '-=0.6'
+        );
     }, section);
 
     return () => ctx.revert();
@@ -117,7 +87,7 @@ export function FAQ() {
     <section
       ref={sectionRef}
       id="faq"
-      className="relative w-full py-20 lg:py-28 bg-off-white dark:bg-near-black z-50"
+      className="relative w-full py-20 lg:py-28 bg-background dark:bg-background z-50"
     >
       <div className="px-6 lg:px-[9vw]">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
@@ -126,7 +96,7 @@ export function FAQ() {
             {/* Heading */}
             <h2
               ref={headingRef}
-              className="font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-near-black dark:text-off-white mb-12"
+              className="font-heading font-semibold text-3xl lg:text-[clamp(34px,3.6vw,52px)] text-foreground dark:text-foreground mb-12"
             >
               Questions <span className="text-lime">&</span> answers
             </h2>
@@ -139,12 +109,12 @@ export function FAQ() {
                     key={index}
                     value={`item-${index}`}
                     data-faq-item
-                    className="bg-white dark:bg-near-black/50 rounded-2xl px-6 shadow-card dark:shadow-card-dark border-none"
+                    className="bg-card dark:bg-card/50 rounded-2xl px-6 shadow-card dark:shadow-card-dark border-none"
                   >
-                    <AccordionTrigger className="font-heading font-medium text-left text-near-black dark:text-off-white hover:text-lime dark:hover:text-lime transition-colors py-5">
+                    <AccordionTrigger className="font-heading font-medium text-left text-foreground dark:text-foreground hover:text-lime dark:hover:text-lime transition-colors py-5">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="font-body text-sm text-text-secondary dark:text-off-white/70 pb-5">
+                    <AccordionContent className="font-body text-sm text-foreground/70 dark:text-foreground/80 pb-5">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
